@@ -6,17 +6,16 @@ import ReactQuery from './components/react-query/ReactQuery';
 import { EventSubscription, useDevToolsPluginClient } from 'expo/devtools';
 import { parse } from 'flatted';
 
-
 function App() {
   const client = useDevToolsPluginClient('rapid-debugger');
-  
+
   // todo move this in the correct file
   useEffect(() => {
     const subscriptions: EventSubscription[] = [];
 
     subscriptions.push(
       client?.addMessageListener('queries', (event) => {
-        console.log("queries", event)
+        console.log('queries', event);
       })
     );
 
@@ -35,21 +34,21 @@ function App() {
 
         const query = serializedQuery;
 
-        console.log("cache event ", cacheEvent)
+        console.log('cache event ', cacheEvent);
 
         switch (type) {
           case 'added':
-            console.log("query added", query)
+            console.log('query added', query);
             break;
           case 'removed':
-            console.log("query removed", queryHash)
+            console.log('query removed', queryHash);
             break;
           case 'updated':
           case 'observerAdded':
           case 'observerRemoved':
           case 'observerResultsUpdated':
           case 'observerOptionsUpdated':
-            console.log("other", query, queryHash);
+            console.log('other', query, queryHash);
             break;
           default:
             break;
@@ -63,10 +62,10 @@ function App() {
       }
     };
   }, [client]);
-  
+
   return (
     <Layout>
-      <div className={"test bg-test"}>heyyyy</div>
+      <div className={'test bg-test'}>heyyyy</div>
       <div>ooooo</div>
       <Console />
       <Network />

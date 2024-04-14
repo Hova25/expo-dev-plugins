@@ -1,4 +1,3 @@
-
 export default function DevToolNotConnected() {
   return (
     <>
@@ -11,10 +10,12 @@ export default function DevToolNotConnected() {
                 window.location.href =
                   window.location.href + '?devServer=localhost:8081';
               }}
+              className={'cursor-pointer'}
             >
               <span className={`text-green-500`}>
-                {`${window.location.href}?devServer=localhost:8081`} (replace 8081 with your expo app port)
+                {`${window.location.href}?devServer=localhost:8081`}
               </span>
+              {' '} (replace 8081 with your expo app port)
             </span>
           </div>
         </div>
