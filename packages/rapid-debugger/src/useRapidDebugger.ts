@@ -5,7 +5,7 @@ type RapidDebuggerProps = {
   queryClient?: QueryClient
 }
 
-export function useRapidDebugger({queryClient}: RapidDebuggerProps) {
+export function useRapidDebugger({ queryClient }: RapidDebuggerProps = {}) {
   if(queryClient) {
     reactQueryAdapter(queryClient);
   }

@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 
 const bigintReplacer = (_, v) => (typeof v === 'bigint' ? v.toString() : v);
 
-
 export function useReactQueryAdapter(queryClient: QueryClient) {
   const client = useDevToolsPluginClient('rapid-debugger');
   const queryCache = queryClient.getQueryCache();

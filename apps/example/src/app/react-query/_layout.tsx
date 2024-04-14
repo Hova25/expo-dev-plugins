@@ -26,7 +26,7 @@ export default function Layout() {
   useAppState(onAppStateChange);
   useOnlineManager();
   useReactQueryDevTools(queryClient);
-  useRapidDebugger(queryClient);
+  useRapidDebugger({queryClient});
 
   return (
     <QueryClientProvider client={queryClient}>
