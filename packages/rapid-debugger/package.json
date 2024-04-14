@@ -7,7 +7,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "expo-module build",
-    "build:all": "expo-module prepare && cd webui && npx expo export -p web --output-dir ../dist",
+    "build:all": "expo-module prepare && cd webui && yarn build",
     "clean": "expo-module clean",
     "lint": "expo-module lint",
     "test": "expo-module test",

@@ -1,11 +1,11 @@
+import { EventSubscription, useDevToolsPluginClient } from 'expo/devtools';
+import { parse } from 'flatted';
 import React, { useEffect } from 'react';
+
 import Layout from './components/Layout';
 import Console from './components/console/Console';
 import Network from './components/network/Network';
 import ReactQuery from './components/react-query/ReactQuery';
-
-import { EventSubscription, useDevToolsPluginClient } from 'expo/devtools';
-import { parse } from 'flatted';
 
 function App() {
   const client = useDevToolsPluginClient('rapid-debugger');
@@ -66,7 +66,7 @@ function App() {
 
   return (
     <Layout>
-      <div className={'test bg-test'}>heyyyy</div>
+      <div className="test bg-test">heyyyy</div>
       <div>ooooo</div>
       <Console />
       <Network />
