@@ -12,7 +12,7 @@ import {
 export default function Console() {
   return (
     <div>
-      <Card className={cn('w-[380px]')}>
+      <Card className={cn('w-full h-full')}>
         <CardHeader>
           <CardTitle>Notifications</CardTitle>
           <CardDescription>You have 3 unread messages.</CardDescription>

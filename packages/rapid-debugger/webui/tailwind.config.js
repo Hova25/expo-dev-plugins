@@ -1,6 +1,9 @@
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
 const { COLORS } = require('./src/constants/COLORS');
+const {
+  BreakPointValueString,
+} = require('./src/components/global/grid-layout/GridLayout.util');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -11,7 +14,7 @@ module.exports = {
       center: true,
       padding: '2rem',
       screens: {
-        '2xl': '1400px',
+        ...BreakPointValueString,
       },
     },
     extend: {
