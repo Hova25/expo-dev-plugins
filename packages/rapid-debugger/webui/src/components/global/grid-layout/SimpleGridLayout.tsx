@@ -6,6 +6,7 @@ import DimensionsContext from '../../../services/contexts/DimensionsContext';
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const HEIGHT_CASE = 40;
+const MARGIN = 10;
 
 export default function SimpleGridLayout({
   children,
@@ -15,8 +16,7 @@ export default function SimpleGridLayout({
     windowSize: { height = 0 },
   } = useContext(DimensionsContext);
 
-  // const rowHeight = useMemo(() => height / HEIGHT_CASE, [height]);
-  const rowHeight = useMemo(() => height / 40 - 10, [height]); // 10 = padding
+  const rowHeight = useMemo(() => height / HEIGHT_CASE - MARGIN, [height]);
 
   return (
     <>
@@ -24,8 +24,9 @@ export default function SimpleGridLayout({
         layouts={layouts}
         cols={SimpleGridLayoutCols}
         rowHeight={rowHeight}
-        preventCollision={true}
+        preventCollision={false}
         compactType={'horizontal'}
+        margin={[MARGIN, MARGIN]}
       >
         {children}
       </ResponsiveGridLayout>

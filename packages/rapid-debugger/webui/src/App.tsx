@@ -32,7 +32,12 @@ const layout: Layout = {
 function App() {
   return (
     <AppLayout>
-      <RenderComponentGridLayout layouts={layout} />
+      <div className="flex row">
+        <div className="flex-1 overflow-y-auto h-screen">
+          <RenderComponentGridLayout layouts={layout} />
+        </div>
+        <div className={'h-screen bg-foreground w-28'}>dd</div>
+      </div>
     </AppLayout>
   );
 }

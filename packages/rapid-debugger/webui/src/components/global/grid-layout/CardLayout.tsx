@@ -1,5 +1,7 @@
-import { forwardRef, PropsWithChildren } from 'react';
+import React, { forwardRef, PropsWithChildren } from 'react';
 import { LayoutComponent } from './GridLayout.util';
+import { cn } from '../../../lib/utils';
+import { Card, CardContent } from '../../ui/card';
 
 type CardLayoutProps = {
   component: LayoutComponent;
@@ -18,7 +20,9 @@ const CardLayout = forwardRef(
 
     return (
       <div ref={ref} {...automaticProps}>
-        <div id={`${i}-card`}>{children}</div>
+        <Card className={cn('w-full h-full m-0 p-0')}>
+          <CardContent className="grid gap-4 p-0">{children}</CardContent>
+        </Card>
       </div>
     );
   }
