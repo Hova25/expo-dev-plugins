@@ -1,6 +1,12 @@
-import { useReactQueryAdapter } from './adapters/useReactQueryAdapter';
+import { useReactQueryAdapter as reactQueryAdapter } from './adapters/useReactQueryAdapter';
 import type { QueryClient } from '@tanstack/react-query';
 
-export function useRapidDebugger(queryClient: QueryClient) {
-  useReactQueryAdapter(queryClient);
+type RapidDebuggerProps = {
+  queryClient?: QueryClient
+}
+
+export function useRapidDebugger({queryClient}: RapidDebuggerProps) {
+  if(queryClient) {
+    reactQueryAdapter(queryClient);
+  }
 }
