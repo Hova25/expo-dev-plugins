@@ -14,8 +14,8 @@
     "prepare": "expo-module prepare && node ../../scripts/build-webui.js react-query",
     "prepublishOnly": "expo-module prepublishOnly",
     "expo-module": "expo-module",
-    "web:dev": "cd webui && npx expo start -w",
-    "web:export": "cd webui && npx expo export -p web --output-dir ../dist"
+    "web:dev": "cd webui && yarn start",
+    "web:export": "cd webui && yarn build"
   },
   "keywords": [
     "expo",
