@@ -59,4 +59,31 @@
         @apply bg-background text-foreground m-0 p-0 overflow-hidden;
         font-feature-settings: "rlig" 1, "calt" 1;
     }
+
+    /* width */
+    ::-webkit-scrollbar {
+        @apply w-1;
+
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        @apply bg-secondary;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        @apply bg-accent rounded-sm;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-primary;
+    }
+
+    /* Déplacer la barre de défilement vers la gauche */
+    ::-webkit-scrollbar {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
 }

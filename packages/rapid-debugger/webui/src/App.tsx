@@ -34,8 +34,13 @@ function App() {
   return (
     <AppLayout>
       <div className="flex row">
-        <div className="flex-1 overflow-y-auto h-screen">
-          <RenderComponentGridLayout layouts={layout} />
+        <div
+          className="flex-1 overflow-y-auto h-screen"
+          style={{ direction: 'rtl' }}
+        >
+          <div style={{ direction: 'ltr' }}>
+            <RenderComponentGridLayout layouts={layout} />
+          </div>
         </div>
         <RightNavbar />
       </div>

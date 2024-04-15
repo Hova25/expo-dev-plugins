@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useEffect } from 'react';
+import { createContext, PropsWithChildren, useContext, useEffect } from 'react';
 import { useColorScheme } from '../hooks/useColorScheme';
 import useLocalStorage from '../hooks/useLocalStorage';
 
@@ -46,5 +46,14 @@ const ThemeProvider = ({ children }: PropsWithChildren) => {
   );
 };
 
-export { ThemeProvider };
+const useTheme = () => {
+  const context = useContext(ThemeContext);
+
+  if (context === undefined)
+    throw new Error('useTheme must be used within a ThemeProvider');
+
+  return context;
+};
+
+export { ThemeProvider, useTheme };
 export default ThemeContext;
