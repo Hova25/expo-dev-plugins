@@ -8,6 +8,7 @@ import {
   LayoutComponent,
 } from './components/global/grid-layout/GridLayout.util';
 import RenderComponentGridLayout from './components/global/grid-layout/RenderComponentGridLayout';
+import RightNavbar from './components/global/right-navbar/RightNavbar';
 
 const baseLayoutComponent: LayoutComponent[] = [
   { i: 'a', x: 0, y: 0, w: 20, h: 10, options: { componentName: 'console' } },
@@ -36,7 +37,7 @@ function App() {
         <div className="flex-1 overflow-y-auto h-screen">
           <RenderComponentGridLayout layouts={layout} />
         </div>
-        <div className={'h-screen bg-foreground w-28'}>dd</div>
+        <RightNavbar />
       </div>
     </AppLayout>
   );

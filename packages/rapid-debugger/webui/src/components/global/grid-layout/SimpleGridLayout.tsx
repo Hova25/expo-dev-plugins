@@ -25,7 +25,7 @@ export default function SimpleGridLayout({
         cols={SimpleGridLayoutCols}
         rowHeight={rowHeight}
         preventCollision={false}
-        compactType={'horizontal'}
+        compactType={'vertical'}
         margin={[MARGIN, MARGIN]}
       >
         {children}
