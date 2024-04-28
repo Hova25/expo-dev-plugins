@@ -10,6 +10,9 @@ module.exports = {
   darkMode: ['class'],
   content: ['src/**/*.{ts,tsx}'],
   theme: {
+    fontFamily: {
+      body: ['afacad'],
+    },
     container: {
       center: true,
       padding: '2rem',
@@ -18,6 +21,7 @@ module.exports = {
       },
     },
     extend: {
+      screens: BreakPointValueString,
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

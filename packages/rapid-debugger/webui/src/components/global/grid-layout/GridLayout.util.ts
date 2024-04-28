@@ -9,6 +9,7 @@ export type ComponentName = 'console' | 'network' | 'reactQuery';
 export interface LayoutComponent extends ReactGridLayout {
   options?: {
     componentName: ComponentName;
+    title: string;
   };
 }
 

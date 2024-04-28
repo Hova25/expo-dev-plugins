@@ -1,5 +1,10 @@
 import React from 'react';
+import { Typography } from '../ui/typography';
 
 export default function Console() {
-  return <div>Console</div>;
+  return (
+    <div>
+      <Typography>Console</Typography>
+    </div>
+  );
 }

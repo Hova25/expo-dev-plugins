@@ -11,15 +11,32 @@ import RenderComponentGridLayout from './components/global/grid-layout/RenderCom
 import RightNavbar from './components/global/right-navbar/RightNavbar';
 
 const baseLayoutComponent: LayoutComponent[] = [
-  { i: 'a', x: 0, y: 0, w: 20, h: 10, options: { componentName: 'console' } },
-  { i: 'b', x: 0, y: 10, w: 20, h: 10, options: { componentName: 'network' } },
+  {
+    i: 'a',
+    x: 0,
+    y: 0,
+    w: 20,
+    h: 10,
+    options: { componentName: 'console', title: 'Console' },
+    resizeHandles: ['s', 'se', 'e'],
+  },
+  {
+    i: 'b',
+    x: 0,
+    y: 10,
+    w: 20,
+    h: 10,
+    options: { componentName: 'network', title: 'Console' },
+    resizeHandles: ['s', 'se', 'e'],
+  },
   {
     i: 'c',
     x: 0,
     y: 20,
     w: 20,
     h: 20,
-    options: { componentName: 'reactQuery' },
+    options: { componentName: 'reactQuery', title: 'React Query' },
+    resizeHandles: ['s', 'se', 'e'],
   },
 ];
 const layout: Layout = {

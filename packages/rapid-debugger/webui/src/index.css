@@ -49,6 +49,10 @@
     }
 }
 
+@font-face {
+    font-family: 'afacad';
+    src: url('./style/fonts/afacad.ttf') format('truetype');
+}
 
 @layer base {
     * {

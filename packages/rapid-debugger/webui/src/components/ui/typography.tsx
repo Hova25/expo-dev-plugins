@@ -6,7 +6,7 @@ const Typography = React.forwardRef<
   HTMLSpanElement,
   React.HTMLAttributes<HTMLSpanElement>
 >(({ className, ...props }, ref) => (
-  <span ref={ref} className={cn('', className)} {...props} />
+  <span ref={ref} className={cn('font-body', className)} {...props} />
 ));
 Typography.displayName = 'Typography';
 

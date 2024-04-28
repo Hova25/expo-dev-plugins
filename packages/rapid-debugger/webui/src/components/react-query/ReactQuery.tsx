@@ -1,6 +1,7 @@
 import { EventSubscription, useDevToolsPluginClient } from 'expo/devtools';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { parse } from 'flatted';
+import { Typography } from '../ui/typography';
 
 export default function ReactQuery() {
   const client = useDevToolsPluginClient('rapid-debugger');
@@ -58,5 +59,9 @@ export default function ReactQuery() {
       }
     };
   }, [client]);
-  return <div>React Query Component</div>;
+  return (
+    <div>
+      <Typography> React Query Component</Typography>
+    </div>
+  );
 }
