@@ -1,20 +1,25 @@
 import { getDevToolsPluginClientAsync } from 'expo/devtools';
 import {
   createContext,
+  createRef,
   PropsWithChildren,
+  RefObject,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 
 interface ConsoleContextInterface {
   logs: any[];
   clearLogs: Function;
+  consoleContainerRef: RefObject<HTMLDivElement>;
 }
 
 const ConsoleContextPrototype: ConsoleContextInterface = {
   logs: [],
   clearLogs: Function,
+  consoleContainerRef: createRef<HTMLDivElement>(),
 };
 
 const ConsoleContext = createContext<ConsoleContextInterface>(
@@ -23,7 +28,9 @@ const ConsoleContext = createContext<ConsoleContextInterface>(
 ConsoleContext.displayName = 'ConsoleContext';
 
 const ConsoleProvider = ({ children }: PropsWithChildren) => {
+  const consoleContainerRef = useRef<HTMLDivElement>(null);
   const [logs, setLogs] = useState<any[]>([]);
+
   useEffect(() => {
     console.log('addMessageee listnerr');
 
@@ -54,6 +61,7 @@ const ConsoleProvider = ({ children }: PropsWithChildren) => {
       value={{
         logs,
         clearLogs,
+        consoleContainerRef,
       }}
     >
       {children}
