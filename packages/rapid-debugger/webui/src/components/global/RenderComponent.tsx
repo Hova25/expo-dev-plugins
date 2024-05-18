@@ -1,13 +1,13 @@
 import { ReactNode } from 'react';
 
 import { ComponentName, LayoutComponent } from './grid-layout/GridLayout.util';
-import Console from '../console/Console';
+import ConsoleEntrypoint from '../console/ConsoleEntrypoint';
 import Network from '../network/Network';
 import ReactQuery from '../react-query/ReactQuery';
 
 const renderComponent: { [RC in ComponentName]: ReactNode } = {
   reactQuery: <ReactQuery />,
-  console: <Console />,
+  console: <ConsoleEntrypoint />,
   network: <Network />,
 };
 

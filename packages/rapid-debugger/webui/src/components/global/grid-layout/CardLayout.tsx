@@ -23,12 +23,14 @@ const CardLayout = forwardRef(
 
     return (
       <div ref={ref} {...automaticProps}>
-        <Card className={cn('rounded-md w-full h-full m-0 p-0')}>
+        <Card className={cn('rounded-md w-full h-full m-0 p-0 flex flex-col')}>
           <CardHeader className="rounded-t-sm py-0 px-0 bg-secondary flex flex-row items-center justify-between space-y-0">
-            <Typography className="text-sm ml-2">{title}</Typography>
+            <Typography className="ml-2">{title}</Typography>
             <SquareX className="size-6 text-foreground cursor-pointer" />
           </CardHeader>
-          <CardContent className="grid gap-4 p-0">{children}</CardContent>
+          <CardContent className="grid gap-4 p-0 overflow-hidden">
+            {children}
+          </CardContent>
         </Card>
       </div>
     );

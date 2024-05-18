@@ -1,12 +1,21 @@
-import { useReactQueryAdapter as reactQueryAdapter } from './adapters/useReactQueryAdapter';
 import type { QueryClient } from '@tanstack/react-query';
+import { useDevToolsPluginClient } from 'expo/devtools';
+
+import { useConsoleAdapter as consoleAdapter } from './adapters/useConsoleAdapter';
+import { useReactQueryAdapter as reactQueryAdapter } from './adapters/useReactQueryAdapter';
 
 type RapidDebuggerProps = {
-  queryClient?: QueryClient
-}
+  queryClient?: QueryClient;
+};
 
 export function useRapidDebugger({ queryClient }: RapidDebuggerProps = {}) {
-  if(queryClient) {
-    reactQueryAdapter(queryClient);
+  const client = useDevToolsPluginClient('rapid-debugger');
+
+  if (client) {
+    consoleAdapter(client);
+
+    if (queryClient) {
+      reactQueryAdapter(queryClient, client);
+    }
   }
 }
