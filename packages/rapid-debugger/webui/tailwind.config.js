@@ -1,9 +1,9 @@
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
-const { COLORS } = require('./src/constants/COLORS');
 const {
   BreakPointValueString,
 } = require('./src/components/global/grid-layout/GridLayout.util');
+const { COLORS } = require('./src/constants/COLORS');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

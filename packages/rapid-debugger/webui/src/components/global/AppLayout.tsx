@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 
-import DevToolNotConnected from './info/DevToolNotConnected';
 import GlobalProviders from './GlobalProviders';
+import DevToolNotConnected from './info/DevToolNotConnected';
 
 export default function AppLayout({ children }: PropsWithChildren) {
   return (

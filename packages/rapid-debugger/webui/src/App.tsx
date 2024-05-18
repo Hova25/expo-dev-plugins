@@ -3,51 +3,12 @@ import React from 'react';
 import './style/grid-layout/react-grid-layout.css';
 import './style/grid-layout/react-resizable.css';
 import AppLayout from './components/global/AppLayout';
-import {
-  Layout,
-  LayoutComponent,
-} from './components/global/grid-layout/GridLayout.util';
 import RenderComponentGridLayout from './components/global/grid-layout/RenderComponentGridLayout';
 import RightNavbar from './components/global/right-navbar/RightNavbar';
-
-const baseLayoutComponent: LayoutComponent[] = [
-  {
-    i: 'a',
-    x: 0,
-    y: 0,
-    w: 20,
-    h: 10,
-    options: { componentName: 'console', title: 'Console' },
-    resizeHandles: ['s', 'se', 'e'],
-  },
-  {
-    i: 'b',
-    x: 0,
-    y: 10,
-    w: 20,
-    h: 10,
-    options: { componentName: 'network', title: 'Console' },
-    resizeHandles: ['s', 'se', 'e'],
-  },
-  {
-    i: 'c',
-    x: 0,
-    y: 20,
-    w: 20,
-    h: 20,
-    options: { componentName: 'reactQuery', title: 'React Query' },
-    resizeHandles: ['s', 'se', 'e'],
-  },
-];
-const layout: Layout = {
-  lg: baseLayoutComponent,
-  md: baseLayoutComponent,
-  sm: baseLayoutComponent,
-  xl: baseLayoutComponent,
-  xs: baseLayoutComponent,
-};
+import { useLayoutContext } from './services/contexts/LayoutContext';
 
 function App() {
+  const { layout } = useLayoutContext();
   return (
     <AppLayout>
       <div className="flex row">

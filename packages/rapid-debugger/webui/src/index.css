@@ -56,7 +56,7 @@
 
 @layer base {
     * {
-        @apply border-border text-sm;
+        @apply border-border text-sm font-body;
     }
 
     body {

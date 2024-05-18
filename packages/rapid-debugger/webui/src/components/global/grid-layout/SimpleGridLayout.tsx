@@ -1,5 +1,6 @@
 import { PropsWithChildren, useContext, useMemo } from 'react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
+
 import { SimpleGridLayoutCols, SimpleGridLayoutProps } from './GridLayout.util';
 import DimensionsContext from '../../../services/contexts/DimensionsContext';
 
@@ -25,7 +26,7 @@ export default function SimpleGridLayout({
         cols={SimpleGridLayoutCols}
         rowHeight={rowHeight}
         preventCollision={false}
-        compactType={'vertical'}
+        compactType="vertical"
         margin={[MARGIN, MARGIN]}
       >
         {children}

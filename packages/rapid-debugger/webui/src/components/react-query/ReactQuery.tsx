@@ -1,6 +1,7 @@
 import { EventSubscription, useDevToolsPluginClient } from 'expo/devtools';
-import React, { useEffect } from 'react';
 import { parse } from 'flatted';
+import React, { useEffect } from 'react';
+
 import { Typography } from '../ui/typography';
 
 export default function ReactQuery() {

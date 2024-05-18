@@ -1,8 +1,9 @@
-import { ComponentName, LayoutComponent } from './grid-layout/GridLayout.util';
 import { ReactNode } from 'react';
-import ReactQuery from '../react-query/ReactQuery';
+
+import { ComponentName, LayoutComponent } from './grid-layout/GridLayout.util';
 import Console from '../console/Console';
 import Network from '../network/Network';
+import ReactQuery from '../react-query/ReactQuery';
 
 const renderComponent: { [RC in ComponentName]: ReactNode } = {
   reactQuery: <ReactQuery />,

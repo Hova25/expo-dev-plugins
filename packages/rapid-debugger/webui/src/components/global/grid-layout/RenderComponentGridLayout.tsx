@@ -1,8 +1,9 @@
 import { useContext } from 'react';
-import { SimpleGridLayoutProps } from './GridLayout.util';
-import DimensionsContext from '../../../services/contexts/DimensionsContext';
-import SimpleGridLayout from './SimpleGridLayout';
+
 import CardLayout from './CardLayout';
+import { SimpleGridLayoutProps } from './GridLayout.util';
+import SimpleGridLayout from './SimpleGridLayout';
+import DimensionsContext from '../../../services/contexts/DimensionsContext';
 import RenderComponent from '../RenderComponent';
 
 export default function RenderComponentGridLayout({

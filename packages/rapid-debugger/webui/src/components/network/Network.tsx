@@ -1,5 +1,6 @@
-import { Typography } from '../ui/typography';
 import React from 'react';
+
+import { Typography } from '../ui/typography';
 
 export default function Network() {
   return (
