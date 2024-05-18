@@ -28,6 +28,7 @@ export default function SimpleGridLayout({
         preventCollision={false}
         compactType="vertical"
         margin={[MARGIN, MARGIN]}
+        draggableHandle=".draggable-handle"
       >
         {children}
       </ResponsiveGridLayout>

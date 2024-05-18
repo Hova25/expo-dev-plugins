@@ -1,4 +1,4 @@
-import { SquareX } from 'lucide-react';
+import { Grip, X } from 'lucide-react';
 import React, { forwardRef, PropsWithChildren } from 'react';
 
 import { LayoutComponent } from './GridLayout.util';
@@ -26,7 +26,10 @@ const CardLayout = forwardRef(
         <Card className={cn('rounded-md w-full h-full m-0 p-0 flex flex-col')}>
           <CardHeader className="rounded-t-sm py-0 px-0 bg-secondary flex flex-row items-center justify-between space-y-0">
             <Typography className="ml-2">{title}</Typography>
-            <SquareX className="size-6 text-foreground cursor-pointer" />
+            <div className="flex flex-row h-full items-center gap-2">
+              <Grip className="draggable-handle size-6 text-foreground cursor-pointer" />
+              <X className="size-6 text-foreground cursor-pointer" />
+            </div>
           </CardHeader>
           <CardContent className="grid gap-4 p-0 overflow-hidden">
             {children}
