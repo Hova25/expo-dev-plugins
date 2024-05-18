@@ -4,6 +4,7 @@ import React, { forwardRef, PropsWithChildren } from 'react';
 import { LayoutComponent } from './GridLayout.util';
 import { cn } from '../../../lib/utils';
 import { Card, CardContent, CardHeader } from '../../ui/card';
+import { EasyTooltip } from '../../ui/tooltip';
 import { Typography } from '../../ui/typography';
 
 type CardLayoutProps = {
@@ -27,8 +28,12 @@ const CardLayout = forwardRef(
           <CardHeader className="rounded-t-sm py-0 px-0 bg-secondary flex flex-row items-center justify-between space-y-0">
             <Typography className="ml-2">{title}</Typography>
             <div className="flex flex-row h-full items-center gap-2">
-              <Grip className="draggable-handle size-6 text-foreground cursor-pointer" />
-              <X className="size-6 text-foreground cursor-pointer" />
+              <EasyTooltip content="Move">
+                <Grip className="draggable-handle size-6 text-foreground cursor-move" />
+              </EasyTooltip>
+              <EasyTooltip content="Close">
+                <X className="size-6 text-foreground cursor-pointer" />
+              </EasyTooltip>
             </div>
           </CardHeader>
           <CardContent className="grid gap-4 p-0 overflow-hidden">
