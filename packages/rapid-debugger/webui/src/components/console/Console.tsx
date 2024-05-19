@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useConsole } from './ConsoleContext';
-import ConsoleToolbar from './ConsoleToolbar';
+import ConsoleToolbar from './toolbar/ConsoleToolbar';
 import { Typography } from '../ui/typography';
 
 export default function Console() {

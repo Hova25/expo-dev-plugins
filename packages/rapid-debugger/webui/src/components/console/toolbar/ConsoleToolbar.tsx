@@ -1,9 +1,10 @@
 import { Eraser } from 'lucide-react';
 import React, { useEffect } from 'react';
 
-import { useConsole } from './ConsoleContext';
-import { Button } from '../ui/button';
-import { EasyTooltip } from '../ui/tooltip';
+import ConsoleTypeToggleGroup from './ConsoleTypeToggleGroup';
+import { Button } from '../../ui/button';
+import { EasyTooltip } from '../../ui/tooltip';
+import { useConsole } from '../ConsoleContext';
 
 export default function ConsoleToolbar() {
   const { logs, clearLogs, consoleContainerRef } = useConsole();
@@ -27,10 +28,11 @@ export default function ConsoleToolbar() {
   return (
     <div className="flex flex-row items-center justify-end">
       <EasyTooltip content="Clear console">
-        <Button onClick={() => clearLogs()} variant="outline" size="icon">
-          <Eraser className="size-6" />
+        <Button onClick={() => clearLogs()} variant="outline" size="sm">
+          <Eraser className="size-4" />
         </Button>
       </EasyTooltip>
+      <ConsoleTypeToggleGroup />
     </div>
   );
 }

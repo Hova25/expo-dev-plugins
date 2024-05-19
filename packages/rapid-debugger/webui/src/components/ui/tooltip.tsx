@@ -33,14 +33,12 @@ const EasyTooltip = ({
   children,
 }: PropsWithChildren<{ specificContent?: ReactElement; content?: string }>) => {
   return (
-    <TooltipProvider>
-      <Tooltip delayDuration={100}>
-        <TooltipTrigger asChild>{children}</TooltipTrigger>
-        <TooltipContent>
-          {specificContent || <Typography>{content}</Typography>}
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <Tooltip delayDuration={100}>
+      <TooltipTrigger asChild>{children}</TooltipTrigger>
+      <TooltipContent>
+        {specificContent || <Typography>{content}</Typography>}
+      </TooltipContent>
+    </Tooltip>
   );
 };
 

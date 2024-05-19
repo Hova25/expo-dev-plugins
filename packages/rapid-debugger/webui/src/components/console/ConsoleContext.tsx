@@ -10,16 +10,27 @@ import {
   useState,
 } from 'react';
 
+import {
+  LOG_TYPE_VALUES,
+  LogTypeValue,
+} from './toolbar/ConsoleTypeToggleGroup';
+
 interface ConsoleContextInterface {
   logs: any[];
   clearLogs: Function;
   consoleContainerRef: RefObject<HTMLDivElement>;
+  availableLogTypes: LogTypeValue[];
+  setAvailableLogTypes: (
+    availableLogTypes: ConsoleContextInterface['availableLogTypes']
+  ) => void;
 }
 
 const ConsoleContextPrototype: ConsoleContextInterface = {
   logs: [],
   clearLogs: Function,
   consoleContainerRef: createRef<HTMLDivElement>(),
+  availableLogTypes: [],
+  setAvailableLogTypes: () => {},
 };
 
 const ConsoleContext = createContext<ConsoleContextInterface>(
@@ -30,6 +41,8 @@ ConsoleContext.displayName = 'ConsoleContext';
 const ConsoleProvider = ({ children }: PropsWithChildren) => {
   const consoleContainerRef = useRef<HTMLDivElement>(null);
   const [logs, setLogs] = useState<any[]>([]);
+  const [availableLogTypes, setAvailableLogTypes] =
+    useState<LogTypeValue[]>(LOG_TYPE_VALUES);
 
   useEffect(() => {
     console.log('addMessageee listnerr');
@@ -62,6 +75,8 @@ const ConsoleProvider = ({ children }: PropsWithChildren) => {
         logs,
         clearLogs,
         consoleContainerRef,
+        availableLogTypes,
+        setAvailableLogTypes,
       }}
     >
       {children}
