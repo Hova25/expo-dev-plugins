@@ -26,7 +26,7 @@ export default function ConsoleToolbar() {
     // }
   }, [logs.length]);
   return (
-    <div className="flex flex-row items-center justify-end">
+    <div className="flex flex-row items-center justify-end gap-x-1">
       <EasyTooltip content="Clear console">
         <Button onClick={() => clearLogs()} variant="outline" size="sm">
           <Eraser className="size-4" />
