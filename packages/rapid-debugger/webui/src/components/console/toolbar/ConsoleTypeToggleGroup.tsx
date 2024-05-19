@@ -5,8 +5,8 @@ import { ToggleGroup, ToggleGroupItem } from '../../ui/toggle-group';
 import { EasyTooltip } from '../../ui/tooltip';
 import { useConsole } from '../ConsoleContext';
 
-export const LOG_TYPE_VALUES = ['info', 'warn', 'error'];
-export type LogTypeValue = (typeof LOG_TYPE_VALUES)[number];
+export const LOG_TYPE_VALUES: LogTypeValue[] = ['info', 'warn', 'error'];
+export type LogTypeValue = 'info' | 'warn' | 'error';
 
 export type TLogType = {
   value: LogTypeValue;

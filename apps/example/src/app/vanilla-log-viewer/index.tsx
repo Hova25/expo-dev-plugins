@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
 import { useVanillaLogViewer } from '@dev-plugins/vanilla-log-viewer';
 
 export default function VanillaLogView() {
@@ -16,6 +16,24 @@ export default function VanillaLogView() {
         title="Send console.log with extra arguments"
         onPress={() => {
           console.log('Hello', 'World', new Date().toISOString());
+        }}
+      />
+      <Button
+        title="Send console.log with object and extra argument"
+        onPress={() => {
+          console.log('Hello', 'World', new Date().toISOString(), {
+            hello: 'world',
+            hi: ['bonjour', 'salut'],
+          });
+        }}
+      />
+      <Button
+        title="Send console.log with objec"
+        onPress={() => {
+          console.log({
+            hello: 'world',
+            hi: ['bonjour', 'salut'],
+          });
         }}
       />
       <Button

@@ -15,8 +15,14 @@ import {
   LogTypeValue,
 } from './toolbar/ConsoleTypeToggleGroup';
 
+export type TLog = {
+  message: any;
+  logType: LogTypeValue;
+  receivedAt: Date;
+};
+
 interface ConsoleContextInterface {
-  logs: any[];
+  logs: TLog[];
   clearLogs: Function;
   consoleContainerRef: RefObject<HTMLDivElement>;
   availableLogTypes: LogTypeValue[];
@@ -40,26 +46,35 @@ ConsoleContext.displayName = 'ConsoleContext';
 
 const ConsoleProvider = ({ children }: PropsWithChildren) => {
   const consoleContainerRef = useRef<HTMLDivElement>(null);
-  const [logs, setLogs] = useState<any[]>([]);
+  const [logs, setLogs] = useState<ConsoleContextInterface['logs']>([]);
   const [availableLogTypes, setAvailableLogTypes] =
     useState<LogTypeValue[]>(LOG_TYPE_VALUES);
+
+  const createLogItem = (message: any, logType: LogTypeValue) => {
+    setLogs((oldLogs) => [
+      ...oldLogs,
+      {
+        message,
+        logType,
+        receivedAt: new Date(),
+      },
+    ]);
+  };
 
   useEffect(() => {
     console.log('addMessageee listnerr');
 
     getDevToolsPluginClientAsync('rapid-debugger').then((client) => {
       client.addMessageListener('log', (message) => {
-        setLogs((oldLogs) => [...oldLogs, message]);
-        // createLogItem(message, 'log');
+        console.log('meees', message);
+        createLogItem(message, 'info');
       });
-      // client.addMessageListener('warn', (message) => {
-      //   setLogs((oldLogs) => [...oldLogs, message]);
-      //   // createLogItem(message, 'warn');
-      // });
-      // client.addMessageListener('error', (message) => {
-      //   setLogs((oldLogs) => [...oldLogs, message]);
-      //   // createLogItem(message, 'error');
-      // });
+      client.addMessageListener('warn', (message) => {
+        createLogItem(message, 'warn');
+      });
+      client.addMessageListener('error', (message) => {
+        createLogItem(message, 'error');
+      });
     });
     return () => {};
   }, []);
