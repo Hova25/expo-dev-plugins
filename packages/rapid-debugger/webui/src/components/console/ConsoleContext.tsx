@@ -80,8 +80,9 @@ const ConsoleProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   const clearLogs = () => {
-    console.log('cleaaar log');
-    setLogs([]);
+    setLogs((oldLogs) =>
+      oldLogs.filter((log) => !availableLogTypes.includes(log.logType))
+    );
   };
 
   return (
