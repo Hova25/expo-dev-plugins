@@ -1,5 +1,5 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Stack, type LinkProps } from 'expo-router';
+import { Link, type LinkProps, Stack } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -16,6 +16,7 @@ export default function TesterScreen() {
         <TestCase title="Async Storage" route="/async-storage/" />
         <TestCase title="React Native MMKV" route="/react-native-mmkv/" />
         <TestCase title="Redux" route="/redux/" />
+        <TestCase title="XHR (with dummyJSON)" route="/xhr/" />
       </View>
     </SafeAreaView>
   );
