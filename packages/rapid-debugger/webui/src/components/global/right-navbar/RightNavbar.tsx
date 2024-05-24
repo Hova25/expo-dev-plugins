@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ComponentList from './ComponentList';
 import { Separator } from '../../ui/separator';
 import { Typography } from '../../ui/typography';
 import { ThemeToggle } from '../ThemeToggle';
@@ -12,9 +13,7 @@ export default function RightNavbar() {
       <Separator />
       <Typography>Components</Typography>
       <Separator />
-      <Typography className="cursor-pointer">Console</Typography>
-      <Typography className="cursor-pointer">Network</Typography>
-      <Typography className="cursor-pointer">ReactQuery</Typography>
+      <ComponentList />
       <Separator />
       <Typography>Saved Components</Typography>
       <Separator />

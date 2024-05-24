@@ -5,10 +5,8 @@ import './style/grid-layout/react-resizable.css';
 import AppLayout from './components/global/AppLayout';
 import RenderComponentGridLayout from './components/global/grid-layout/RenderComponentGridLayout';
 import RightNavbar from './components/global/right-navbar/RightNavbar';
-import { useLayoutContext } from './services/contexts/LayoutContext';
 
 function App() {
-  const { layout } = useLayoutContext();
   return (
     <AppLayout>
       <div className="flex row">
@@ -17,7 +15,7 @@ function App() {
           style={{ direction: 'rtl' }}
         >
           <div style={{ direction: 'ltr' }}>
-            <RenderComponentGridLayout layouts={layout} />
+            <RenderComponentGridLayout />
           </div>
         </div>
         <RightNavbar />

@@ -47,3 +47,35 @@ export const BreakPointValueString: BreakPointsProps<string> = {
   sm: '576px',
   xs: '0px',
 };
+
+export const DefaultComponentLayout: {
+  [Key in ComponentName]: LayoutComponent;
+} = {
+  console: {
+    i: 'console-',
+    x: 0,
+    y: 0,
+    w: 20,
+    h: 10,
+    options: { componentName: 'console', title: 'Console' },
+    resizeHandles: ['s', 'se', 'e'],
+  },
+  network: {
+    i: 'network-',
+    x: 0,
+    y: 10,
+    w: 20,
+    h: 10,
+    options: { componentName: 'network', title: 'Network' },
+    resizeHandles: ['s', 'se', 'e'],
+  },
+  reactQuery: {
+    i: 'reactQuery-',
+    x: 0,
+    y: 20,
+    w: 20,
+    h: 20,
+    options: { componentName: 'reactQuery', title: 'React Query' },
+    resizeHandles: ['s', 'se', 'e'],
+  },
+};
