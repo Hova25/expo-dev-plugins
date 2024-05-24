@@ -2,6 +2,7 @@ import { Grip, X } from 'lucide-react';
 import React, { forwardRef, PropsWithChildren } from 'react';
 
 import { LayoutComponent } from './GridLayout.util';
+import { useLayoutContext } from './LayoutContext';
 import { cn } from '../../../lib/utils';
 import { Card, CardContent, CardHeader } from '../../ui/card';
 import { EasyTooltip } from '../../ui/tooltip';
@@ -20,6 +21,7 @@ const CardLayout = forwardRef(
     }: PropsWithChildren<CardLayoutProps>,
     ref: any
   ) => {
+    const { removeComponent } = useLayoutContext();
     const { i, options: { title } = {} } = component;
 
     return (
@@ -32,7 +34,10 @@ const CardLayout = forwardRef(
                 <Grip className="draggable-handle size-6 text-foreground cursor-move" />
               </EasyTooltip>
               <EasyTooltip content="Close">
-                <X className="size-6 text-foreground cursor-pointer" />
+                <X
+                  onClick={() => removeComponent(i)}
+                  className="size-6 text-foreground cursor-pointer"
+                />
               </EasyTooltip>
             </div>
           </CardHeader>

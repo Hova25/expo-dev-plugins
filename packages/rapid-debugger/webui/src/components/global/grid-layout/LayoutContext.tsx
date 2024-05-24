@@ -1,3 +1,4 @@
+import { cloneDeep } from 'lodash';
 import React, {
   createContext,
   PropsWithChildren,
@@ -18,21 +19,23 @@ const baseLayoutComponent: LayoutComponent[] = [
   { ...DefaultComponentLayout['reactQuery'] },
 ];
 const defaultLayout: Layout = {
-  lg: baseLayoutComponent,
-  md: baseLayoutComponent,
-  sm: baseLayoutComponent,
-  xl: baseLayoutComponent,
-  xs: baseLayoutComponent,
+  lg: [...baseLayoutComponent],
+  md: [...baseLayoutComponent],
+  sm: [...baseLayoutComponent],
+  xl: [...baseLayoutComponent],
+  xs: [...baseLayoutComponent],
 };
 
 interface LayoutContextInterface {
   layout: Layout;
   addComponent: (name: ComponentName) => void;
+  removeComponent: (i: string) => void;
 }
 
 const LayoutContextPrototype: LayoutContextInterface = {
   layout: defaultLayout,
   addComponent: Function,
+  removeComponent: Function,
 };
 
 const LayoutContext = createContext<LayoutContextInterface>(
@@ -52,12 +55,25 @@ const LayoutProvider = ({ children }: PropsWithChildren) => {
     };
 
     setLayout((prevLayout) => ({
-      lg: [...prevLayout.lg, newComponent],
-      md: [...prevLayout.md, newComponent],
-      sm: [...prevLayout.sm, newComponent],
-      xl: [...prevLayout.xl, newComponent],
-      xs: [...prevLayout.xs, newComponent],
+      lg: [...prevLayout.lg, { ...newComponent }],
+      md: [...prevLayout.md, { ...newComponent }],
+      sm: [...prevLayout.sm, { ...newComponent }],
+      xl: [...prevLayout.xl, { ...newComponent }],
+      xs: [...prevLayout.xs, { ...newComponent }],
     }));
+  };
+
+  const removeComponent = (i: string) => {
+    const layoutTmp = cloneDeep(layout);
+    const index = layoutTmp.xl.findIndex((component) => component.i === i);
+    if (index > -1) {
+      layoutTmp.xl.splice(index, 1);
+      layoutTmp.lg.splice(index, 1);
+      layoutTmp.md.splice(index, 1);
+      layoutTmp.sm.splice(index, 1);
+      layoutTmp.xs.splice(index, 1);
+    }
+    setLayout(layoutTmp);
   };
 
   return (
@@ -65,6 +81,7 @@ const LayoutProvider = ({ children }: PropsWithChildren) => {
       value={{
         layout,
         addComponent,
+        removeComponent,
       }}
     >
       {children}
