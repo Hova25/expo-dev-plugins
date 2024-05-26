@@ -50,7 +50,13 @@ const ConsoleProvider = ({ children }: PropsWithChildren) => {
   const [availableLogTypes, setAvailableLogTypes] =
     useState<LogTypeValue[]>(LOG_TYPE_VALUES);
 
-  const createLogItem = (message: any, logType: LogTypeValue) => {
+  const createLogItem = (stringMessage: string, logType: LogTypeValue) => {
+    let message: any;
+    try {
+      message = JSON.parse(stringMessage);
+    } catch (_) {
+      message = stringMessage;
+    }
     setLogs((oldLogs) => [
       ...oldLogs,
       {

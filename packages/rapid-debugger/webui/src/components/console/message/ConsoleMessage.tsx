@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { dateToHourMilli } from '../../../lib/date.utils';
+import BodyViewer from '../../ui/body-viewer';
 import { Typography } from '../../ui/typography';
 import { TLog } from '../ConsoleContext';
 
@@ -17,7 +18,7 @@ export default function ConsoleMessage({
         <span className="font-bold">
           {dateToHourMilli(receivedAt)} ({logType})
         </span>{' '}
-        - {message}
+        - <BodyViewer data={message} />
       </Typography>
     </div>
   );
