@@ -1,9 +1,6 @@
 import { Button, StyleSheet, View } from 'react-native';
-import { useVanillaLogViewer } from '@dev-plugins/vanilla-log-viewer';
 
-export default function VanillaLogView() {
-  useVanillaLogViewer();
-
+export default function XHRView() {
   return (
     <View style={styles.container}>
       <Button

@@ -1,7 +1,9 @@
-import { useReactQueryAdapter as reactQueryAdapter } from './adapters/useReactQueryAdapter';
+import { useDevToolsPluginClient } from 'expo/devtools';
+import { useConsoleAdapter } from './adapters/useConsoleAdapter';
+import { useNetworkXHRAdapter } from './adapters/useNetworkXHRAdapter';
 export function useRapidDebugger({ queryClient } = {}) {
-    if (queryClient) {
-        reactQueryAdapter(queryClient);
-    }
+    const client = useDevToolsPluginClient('rapid-debugger');
+    useConsoleAdapter(client);
+    useNetworkXHRAdapter(client);
 }
 //# sourceMappingURL=useRapidDebugger.js.map

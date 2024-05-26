@@ -1,10 +1,11 @@
 import { useReactNavigationDevTools } from '@dev-plugins/react-navigation';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useFonts } from 'expo-font';
-import { SplashScreen, Stack } from 'expo-router';
+import { SplashScreen, Stack, useNavigationContainerRef } from 'expo-router';
 import { useEffect } from 'react';
-import { useNavigationContainerRef } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+// import { useRapidDebugger } from 'rapid-debugger';
+import { useRapidDebugger } from '../../../../packages/rapid-debugger/src/index';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -45,6 +46,7 @@ export default function RootLayout() {
 function RootLayoutNav() {
   const navigationRef = useNavigationContainerRef();
   useReactNavigationDevTools(navigationRef);
+  useRapidDebugger();
 
   return (
     <>

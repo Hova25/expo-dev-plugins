@@ -1,1 +1,1 @@
-{"version":3,"file":"useReactQueryAdapter.d.ts","sourceRoot":"","sources":["../../src/adapters/useReactQueryAdapter.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAgC,WAAW,EAAE,MAAM,uBAAuB,CAAC;AAMvF,wBAAgB,oBAAoB,CAAC,WAAW,EAAE,WAAW,QAqE5D"}
+{"version":3,"file":"useReactQueryAdapter.d.ts","sourceRoot":"","sources":["../../src/adapters/useReactQueryAdapter.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAgC,WAAW,EAAE,MAAM,uBAAuB,CAAC;AACvF,OAAO,EAAE,oBAAoB,EAA0B,MAAM,eAAe,CAAC;AAM7E,wBAAgB,oBAAoB,CAAC,WAAW,EAAE,WAAW,EAAE,MAAM,EAAE,oBAAoB,QAoE1F"}

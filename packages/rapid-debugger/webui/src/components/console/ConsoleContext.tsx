@@ -62,11 +62,8 @@ const ConsoleProvider = ({ children }: PropsWithChildren) => {
   };
 
   useEffect(() => {
-    console.log('addMessageee listnerr');
-
     getDevToolsPluginClientAsync('rapid-debugger').then((client) => {
       client.addMessageListener('log', (message) => {
-        console.log('meees', message);
         createLogItem(message, 'info');
       });
       client.addMessageListener('warn', (message) => {

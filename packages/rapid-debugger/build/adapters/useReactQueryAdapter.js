@@ -1,9 +1,7 @@
 import { stringify } from 'flatted';
-import { useDevToolsPluginClient } from 'expo/devtools';
 import { useEffect } from 'react';
 const bigintReplacer = (_, v) => (typeof v === 'bigint' ? v.toString() : v);
-export function useReactQueryAdapter(queryClient) {
-    const client = useDevToolsPluginClient('rapid-debugger');
+export function useReactQueryAdapter(queryClient, client) {
     const queryCache = queryClient.getQueryCache();
     let unsubscribe;
     function getQueries() {

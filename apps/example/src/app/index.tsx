@@ -2,6 +2,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, type LinkProps, Stack } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+// import { useRapidDebugger } from 'rapid-debugger';
 
 export default function TesterScreen() {
   return (

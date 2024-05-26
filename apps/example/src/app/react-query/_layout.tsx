@@ -1,11 +1,10 @@
 import { Stack } from 'expo-router';
 import { AppStateStatus, Platform } from 'react-native';
-import { QueryClient, QueryClientProvider, focusManager } from '@tanstack/react-query';
+import { focusManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { useAppState } from '@/react-query/hooks/useAppState';
 import { useOnlineManager } from '@/react-query/hooks/useOnlineManager';
 import { useReactQueryDevTools } from '@dev-plugins/react-query';
-import { useRapidDebugger } from 'rapid-debugger/build/useRapidDebugger';
 
 function onAppStateChange(status: AppStateStatus) {
   // React Query already supports in web browser refetch on window focus by default
@@ -26,7 +25,6 @@ export default function Layout() {
   useAppState(onAppStateChange);
   useOnlineManager();
   useReactQueryDevTools(queryClient);
-  useRapidDebugger({queryClient});
 
   return (
     <QueryClientProvider client={queryClient}>

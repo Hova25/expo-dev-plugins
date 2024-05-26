@@ -1,8 +1,8 @@
 import type { QueryClient } from '@tanstack/react-query';
 import { useDevToolsPluginClient } from 'expo/devtools';
 
-import { useConsoleAdapter as consoleAdapter } from './adapters/useConsoleAdapter';
-import { useReactQueryAdapter as reactQueryAdapter } from './adapters/useReactQueryAdapter';
+import { useConsoleAdapter } from './adapters/useConsoleAdapter';
+import { useNetworkXHRAdapter } from './adapters/useNetworkXHRAdapter';
 
 type RapidDebuggerProps = {
   queryClient?: QueryClient;
@@ -10,12 +10,6 @@ type RapidDebuggerProps = {
 
 export function useRapidDebugger({ queryClient }: RapidDebuggerProps = {}) {
   const client = useDevToolsPluginClient('rapid-debugger');
-
-  if (client) {
-    consoleAdapter(client);
-
-    if (queryClient) {
-      reactQueryAdapter(queryClient, client);
-    }
-  }
+  useConsoleAdapter(client);
+  useNetworkXHRAdapter(client);
 }
