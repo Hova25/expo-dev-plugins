@@ -6,7 +6,7 @@ export default function XHRView() {
       <Button
         title="Get Products"
         onPress={() => {
-          fetch('https://dummyjson.com/products').then((res) => console.log('test', res));
+          fetch('https://dummyjson.com/products');
         }}
       />
     </View>

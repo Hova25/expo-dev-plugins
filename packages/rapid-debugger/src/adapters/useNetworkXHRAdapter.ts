@@ -7,14 +7,21 @@ export function useNetworkXHRAdapter(client: DevToolsPluginClient | null) {
 
   // const originalOnReadyStateChangeXHR = XMLHttpRequest.prototype.onreadystatechange;
   useEffect(() => {
+    fetch('dkldk').then((res) => res.json());
+
     async function setup() {
       XMLHttpRequest.prototype.send = function (...args) {
-        this.onreadystatechange = function () {
-          console.log('state changes', this.readyState.toString(), this.responseType);
+        this.onreadystatechange = async function async() {
           if (this.readyState === this.DONE) {
-            console.log('test', this.responseType);
             if (this.responseType === 'blob') {
-              console.log('ldkdlkd');
+              try {
+                const response = new Response(this.response);
+
+                const jsonBody = await response.json();
+                console.log('oo', response.status, jsonBody);
+              } catch (e) {
+                console.error('errorrr', e.toString());
+              }
             }
           }
         };
