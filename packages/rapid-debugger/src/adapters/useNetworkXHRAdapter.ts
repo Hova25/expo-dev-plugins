@@ -18,7 +18,7 @@ export function useNetworkXHRAdapter(client: DevToolsPluginClient | null) {
                 const response = new Response(this.response);
 
                 const jsonBody = await response.json();
-                console.log('oo', response.status, jsonBody);
+                console.log('oo tesssst', response.status, jsonBody);
               } catch (e) {
                 console.error('errorrr', e.toString());
               }
